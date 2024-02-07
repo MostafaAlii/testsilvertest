@@ -1,0 +1,1 @@
+{{$data['callCenter']->name . ' ' . 'Tickets'}}

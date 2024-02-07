@@ -1,0 +1,34 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('captain_tricycles', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('captain_id')->constrained('captains')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('tricycle_make_id')->nullable()->constrained('tricycle_makes')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('tricycle_model_id')->nullable()->constrained('tricycle_models')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->enum('tricycle', ['master', 'general'])->default('general');
+            $table->string('tricycle_number')->nullable();
+            $table->string('tricycle_color')->nullable();
+            $table->year('tricycle_year')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('captain_tricycles');
+    }
+};

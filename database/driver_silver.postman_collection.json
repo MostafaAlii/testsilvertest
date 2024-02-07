@@ -1,0 +1,3655 @@
+{
+	"info": {
+		"_postman_id": "248d079a-1d03-4031-8400-8822e4deb65d",
+		"name": "driver_silver",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28719047"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Ahmed",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "mohmaed@mohmaed.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0123456789",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"description": "male,female",
+											"type": "text"
+										},
+										{
+											"key": "country_id",
+											"value": "65",
+											"description": "exists:countries,id",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456789",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/user/register",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login_email",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "mohmaed@mohmaed.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456789",
+											"type": "text"
+										},
+										{
+											"key": "fcm_token",
+											"value": "",
+											"description": "null",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/user/login",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/user/logout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login_phone",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "01156879716",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456789",
+											"type": "text"
+										},
+										{
+											"key": "fcm_token",
+											"value": "",
+											"description": "null",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{live}}/api/v1/user/login_phone",
+									"host": [
+										"{{live}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"login_phone"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "user-profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/user/user-profile",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"user-profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "refresh",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/user/refresh",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"refresh"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "edit-profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Mohmaed",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "mohmaed@mohmaed.com",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "اكتوبر",
+											"description": "العنوان",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/user/edit-profile",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"edit-profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "editImages",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "avatar",
+											"type": "file",
+											"src": "/C:/Users/DELL/Desktop/New folder/WhatsApp Image 2023-06-24 at 17.41.29.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/user/editImages",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"editImages"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change-password",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "password",
+											"value": "ahmededitasdsadasddsa",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/user/change-password",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "restPassword",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "01111289180",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "212121asdsaedasd",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/user/restPassword",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"restPassword"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "checkPhone",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "01111289180",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/user/checkPhone",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"checkPhone"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Notifications",
+					"item": [
+						{
+							"name": "getNotifications",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/user/getNotifications",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"getNotifications"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "userSubscription",
+					"item": [
+						{
+							"name": "userSubscription",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "type",
+											"value": "subscription",
+											"description": "in:package,subscription,offer",
+											"type": "text"
+										},
+										{
+											"key": "package_id",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "subscription_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "offer_id",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/user/userSubscription",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"userSubscription"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Captions",
+					"item": [
+						{
+							"name": "Captions",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NpbHZlci50YWctc29mdC5jb20vYXBpL3YxL3VzZXIvbG9naW5fcGhvbmUiLCJpYXQiOjE2OTU0NTE4MjUsImV4cCI6MTY5NTQ1NTQyNSwibmJmIjoxNjk1NDUxODI1LCJqdGkiOiJja3lGZFRtcXphZEdpSVNsIiwic3ViIjoiMyIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.YFyostg_x9Km7deYnpnvMUfPE_-DunzOjGoCyi7wZRs",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "latitude",
+											"value": "29.9933365",
+											"type": "text"
+										},
+										{
+											"key": "longitude",
+											"value": "31.14803",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{live}}/api/v1/user/captionActivity",
+									"host": [
+										"{{live}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"captionActivity"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "drivers",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "BBB2asdasdasd",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "01129966320@01129966320.com",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "01129966320",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"description": "male,female",
+											"type": "text"
+										},
+										{
+											"key": "country_id",
+											"value": "65",
+											"description": "exists:countries,id",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "01129966317",
+											"type": "text"
+										},
+										{
+											"key": "api_secret_key",
+											"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+											"type": "text"
+										},
+										{
+											"key": "status_caption_type",
+											"value": "car",
+											"type": "text"
+										},
+										{
+											"key": "type",
+											"value": "caption",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{live_test_2}}/api/v1/driver/register",
+									"host": [
+										"{{live_test_2}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login_email",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2RyaXZlci9yZWdpc3RlciIsImlhdCI6MTcwNDg4ODI5NiwiZXhwIjoxNzA0ODkxODk2LCJuYmYiOjE3MDQ4ODgyOTYsImp0aSI6Ik12V3lTUm1VUHN1dXk2UngiLCJzdWIiOiI0NCIsInBydiI6ImEzMTQ3NGQyMzc4NjNlNTU4MjYxYjg1ZWE3M2E3MTI0MTUxOWFlOTMifQ.7CDFpnWj9GgmbPBHuiv-5H9Z1ry6MWNDA2bChxH3iDY",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "ghxb@gmai.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123456789",
+											"type": "text"
+										},
+										{
+											"key": "fcm_token",
+											"value": "",
+											"description": "null",
+											"type": "text"
+										},
+										{
+											"key": "api_secret_key",
+											"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://testsilver.tripu.net/api/v1/driver/login",
+									"protocol": "https",
+									"host": [
+										"testsilver",
+										"tripu",
+										"net"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/driver/logout",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "login_phone",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "01129966317",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123123",
+											"type": "text"
+										},
+										{
+											"key": "fcm_token",
+											"value": "",
+											"description": "null",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "api_secret_key",
+											"value": "Raphaelle McLaughlin",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/driver/login_phone",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"login_phone"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "user-profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/driver/user-profile",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"user-profile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "refresh",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/driver/refresh",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"refresh"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change-password",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_user}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "password",
+											"value": "ahmededitasdsadasddsa",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/driver/change-password",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "restPassword",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "01111289180",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "212121asdsaedasd",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/driver/restPassword",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"restPassword"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "checkPhone",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "phone",
+											"value": "01111289180",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/driver/checkPhone",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"checkPhone"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Notifications",
+					"item": [
+						{
+							"name": "getNotifications",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token_driver}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/user/getNotifications",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"user",
+										"getNotifications"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Profile",
+					"item": [
+						{
+							"name": "Cars",
+							"item": [
+								{
+									"name": "UploadCarPhoto",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2RyaXZlci9sb2dpbl9waG9uZSIsImlhdCI6MTY5NDI1MjczNSwiZXhwIjoxNjk0MjU2MzM1LCJuYmYiOjE2OTQyNTI3MzUsImp0aSI6Im5BRWZ1aUZMM3oxbjZGUUMiLCJzdWIiOiIxIiwicHJ2IjoiYTMxNDc0ZDIzNzg2M2U1NTgyNjFiODVlYTczYTcxMjQxNTE5YWU5MyJ9.CREw1jPX6kKQxk2QzLt3JwJnbO8jh6rfVk63cLtZEfI",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "car_make_id",
+													"value": "1",
+													"type": "text"
+												},
+												{
+													"key": "car_model_id",
+													"value": "2",
+													"type": "text"
+												},
+												{
+													"key": "car_type_id",
+													"value": "2",
+													"type": "text"
+												},
+												{
+													"key": "category_car_id",
+													"value": "1",
+													"type": "text"
+												},
+												{
+													"key": "number_car",
+													"value": "1231234qqqq",
+													"type": "text"
+												},
+												{
+													"key": "color_car",
+													"value": "#123",
+													"type": "text"
+												},
+												{
+													"key": "car_photo_before",
+													"description": "صورة السياره امام",
+													"type": "file",
+													"src": "/C:/Users/FALCON/Desktop/m/car carry/img/brand1.jpg"
+												},
+												{
+													"key": "car_photo_behind",
+													"description": "صورة السياره خلف",
+													"type": "file",
+													"src": "/C:/Users/FALCON/Desktop/m/car carry/img/brand2.jpg"
+												},
+												{
+													"key": "car_photo_right",
+													"description": "صورة السياره الجانب الايمن",
+													"type": "file",
+													"src": "/C:/Users/FALCON/Desktop/m/car carry/img/brand3.jpg"
+												},
+												{
+													"key": "car_photo_north",
+													"description": "صورة السياره الجانب اليسار",
+													"type": "file",
+													"src": "/C:/Users/FALCON/Desktop/m/car carry/img/brand4.png"
+												},
+												{
+													"key": "car_photo_inside",
+													"description": "صورة السياره بالداخل",
+													"type": "file",
+													"src": "/C:/Users/FALCON/Desktop/m/car carry/img/brand5.png"
+												},
+												{
+													"key": "car_license_before",
+													"description": "صوره الرخصة امام",
+													"type": "file",
+													"src": "/C:/Users/FALCON/Desktop/m/car carry/img/brand6.jpg"
+												},
+												{
+													"key": "car_license_behind",
+													"description": "صوره الرخصة خلف",
+													"type": "file",
+													"src": "/C:/Users/FALCON/Desktop/m/car carry/img/brand7.jpg"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/driver/profile/uploadCarPhoto",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"driver",
+												"profile",
+												"uploadCarPhoto"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "getCaptainCarsPhotosWithStatus",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2RyaXZlci9sb2dpbl9waG9uZSIsImlhdCI6MTY5NDI0NjE1MywiZXhwIjoxNjk0MjQ5NzUzLCJuYmYiOjE2OTQyNDYxNTMsImp0aSI6InFNa2c2c3hJSENZaElyMkwiLCJzdWIiOiIxIiwicHJ2IjoiYTMxNDc0ZDIzNzg2M2U1NTgyNjFiODVlYTczYTcxMjQxNTE5YWU5MyJ9.f-3FHQZrBMZrxED-O1Klwf7gCGm3aQRd3qo-dQXo-Is",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/v1/driver/profile/getCaptainCarsPhotosWithStatus",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"driver",
+												"profile",
+												"getCaptainCarsPhotosWithStatus"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "media",
+							"item": [
+								{
+									"name": "newProfilePhoto",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3Rlc3RzaWx2ZXIudHJpcHUubmV0L2FwaS92MS9kcml2ZXIvcmVnaXN0ZXIiLCJpYXQiOjE3MDY1MTMyMzUsImV4cCI6MTcwNjUxNjgzNSwibmJmIjoxNzA2NTEzMjM1LCJqdGkiOiJJNmpzUmRzQzQzdU5ycktZIiwic3ViIjoiMzQ2IiwicHJ2IjoiYTMxNDc0ZDIzNzg2M2U1NTgyNjFiODVlYTczYTcxMjQxNTE5YWU5MyJ9._B2y7k-NmRd6hAnzSGnRMdhBdTlz-uqnvxSXWR9qnwc",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "personal_avatar",
+													"description": "personal",
+													"type": "file",
+													"src": [],
+													"disabled": true
+												},
+												{
+													"key": "id_photo_front",
+													"description": "personal",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/car/1.jpg",
+													"disabled": true
+												},
+												{
+													"key": "id_photo_back",
+													"description": "personal",
+													"type": "file",
+													"src": [],
+													"disabled": true
+												},
+												{
+													"key": "criminal_record",
+													"description": "personal",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/car/2.jpg",
+													"disabled": true
+												},
+												{
+													"key": "captain_license_front",
+													"description": "personal",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/car/3.jpg"
+												},
+												{
+													"key": "captain_license_back",
+													"description": "personal",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/car/4.jpg"
+												},
+												{
+													"key": "car_license_front",
+													"description": "car",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/car/5.jpg",
+													"disabled": true
+												},
+												{
+													"key": "car_license_back",
+													"description": "car",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/car/6.jpg",
+													"disabled": true
+												},
+												{
+													"key": "car_front",
+													"description": "car",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/1.jpg",
+													"disabled": true
+												},
+												{
+													"key": "car_back",
+													"description": "car",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/2.jpg",
+													"disabled": true
+												},
+												{
+													"key": "car_right",
+													"description": "car",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/3.jpg",
+													"disabled": true
+												},
+												{
+													"key": "car_left",
+													"description": "car",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/4.jpg",
+													"disabled": true
+												},
+												{
+													"key": "car_inside",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/5.jpg",
+													"disabled": true
+												},
+												{
+													"key": "number_personal",
+													"value": "568",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "car_make_id",
+													"value": "1",
+													"description": "required for car & personal",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "car_model_id",
+													"value": "2",
+													"description": "required for car & personal",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "car_type_id",
+													"value": "1",
+													"description": "required for car & personal",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "number_car",
+													"value": "1234567",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "color_car",
+													"value": "green",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "year_car",
+													"value": "2024",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "type",
+													"value": "personal",
+													"type": "text"
+												},
+												{
+													"key": "api_secret_key",
+													"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "https://testsilver.tripu.net/api/v1/driver/profile/media/uploadProfile",
+											"protocol": "https",
+											"host": [
+												"testsilver",
+												"tripu",
+												"net"
+											],
+											"path": [
+												"api",
+												"v1",
+												"driver",
+												"profile",
+												"media",
+												"uploadProfile"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": "",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "updateProfilePhoto",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3Rlc3RzaWx2ZXIudHJpcHUubmV0L2FwaS92MS9kcml2ZXIvcmVnaXN0ZXIiLCJpYXQiOjE3MDY1MTMyMzUsImV4cCI6MTcwNjUxNjgzNSwibmJmIjoxNzA2NTEzMjM1LCJqdGkiOiJJNmpzUmRzQzQzdU5ycktZIiwic3ViIjoiMzQ2IiwicHJ2IjoiYTMxNDc0ZDIzNzg2M2U1NTgyNjFiODVlYTczYTcxMjQxNTE5YWU5MyJ9._B2y7k-NmRd6hAnzSGnRMdhBdTlz-uqnvxSXWR9qnwc",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "",
+												"value": "",
+												"type": "text",
+												"disabled": true
+											},
+											{
+												"key": "type",
+												"value": "personal",
+												"type": "text"
+											},
+											{
+												"key": "",
+												"value": "",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "personal_avatar",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/1.jpg"
+												},
+												{
+													"key": "id_photo_front",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/2.jpg"
+												},
+												{
+													"key": "id_photo_back",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/3.jpg"
+												},
+												{
+													"key": "criminal_record",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/4.jpg"
+												},
+												{
+													"key": "captain_license_front",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/5.jpg"
+												},
+												{
+													"key": "captain_license_back",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/6.jpg"
+												},
+												{
+													"key": "car_license_front",
+													"type": "file",
+													"src": "/C:/laragon/www/car/resources/img/captains/captain_3.jpg",
+													"disabled": true
+												},
+												{
+													"key": "car_license_back",
+													"type": "file",
+													"src": "/C:/Users/FALCON/Pictures/Screenshots/Screenshot (8).png",
+													"disabled": true
+												},
+												{
+													"key": "car_front",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/theme/Cloven/HTML/assets/images/banner-shape-1.png",
+													"disabled": true
+												},
+												{
+													"key": "car_back",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/New folder/offers.png",
+													"disabled": true
+												},
+												{
+													"key": "car_right",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/theme/Cloven/Documentation/assets/img/logo.png",
+													"disabled": true
+												},
+												{
+													"key": "car_left",
+													"type": "file",
+													"src": "/C:/Users/FALCON/Desktop/photo/4.jfif",
+													"disabled": true
+												},
+												{
+													"key": "car_inside",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/theme/Cloven/HTML/assets/images/mission-item.png",
+													"disabled": true
+												},
+												{
+													"key": "type",
+													"value": "personal",
+													"type": "text"
+												},
+												{
+													"key": "api_secret_key",
+													"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+													"type": "text"
+												},
+												{
+													"key": "filename",
+													"value": "offers.png",
+													"type": "text",
+													"disabled": true
+												}
+											]
+										},
+										"url": {
+											"raw": "https://testsilver.tripu.net/api/v1/driver/profile/media/updateUploadProfile",
+											"protocol": "https",
+											"host": [
+												"testsilver",
+												"tripu",
+												"net"
+											],
+											"path": [
+												"api",
+												"v1",
+												"driver",
+												"profile",
+												"media",
+												"updateUploadProfile"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "getRejectMedia",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NpbHZlci50cmlwdS5uZXQvYXBpL3YxL2RyaXZlci9sb2dpbiIsImlhdCI6MTcwNDk3NTAzNiwiZXhwIjoxNzA0OTc4NjM2LCJuYmYiOjE3MDQ5NzUwMzYsImp0aSI6InpCamNFeWV6eXd4RU00dGYiLCJzdWIiOiIyMzEiLCJwcnYiOiJhMzE0NzRkMjM3ODYzZTU1ODI2MWI4NWVhNzNhNzEyNDE1MTlhZTkzIn0.AI0Y7IqGzn-Uuy-xGLidVn_JhuBT6BzwWGjxk61Mszk",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "api_secret_key",
+													"value": "5VxgNxDxSvmMIabYFLmA6v9oJU5NnuXc",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{live}}/api/v1/driver/profile/media/getRejectMedia",
+											"host": [
+												"{{live}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"driver",
+												"profile",
+												"media",
+												"getRejectMedia"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "allMedia",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NpbHZlci50cmlwdS5uZXQvYXBpL3YxL2RyaXZlci9sb2dpbl9waG9uZSIsImlhdCI6MTcwNTg0NzUzNiwiZXhwIjoxNzA1ODUxMTM2LCJuYmYiOjE3MDU4NDc1MzYsImp0aSI6InpmbjQ5ekVYRDIyT3kwUzQiLCJzdWIiOiIyMTAiLCJwcnYiOiJhMzE0NzRkMjM3ODYzZTU1ODI2MWI4NWVhNzNhNzEyNDE1MTlhZTkzIn0.DUMRSkY3yREjof4IWHeaeN_uifIEPpagvbbQQ14k-vk",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "type",
+													"value": "personal",
+													"type": "text"
+												},
+												{
+													"key": "api_secret_key",
+													"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{live}}/api/v1/driver/profile/media/allMedia",
+											"host": [
+												"{{live}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"driver",
+												"profile",
+												"media",
+												"allMedia"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "checkImg",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NpbHZlci50cmlwdS5uZXQvYXBpL3YxL2RyaXZlci9sb2dpbl9waG9uZSIsImlhdCI6MTcwNTg0NzUzNiwiZXhwIjoxNzA1ODUxMTM2LCJuYmYiOjE3MDU4NDc1MzYsImp0aSI6InpmbjQ5ekVYRDIyT3kwUzQiLCJzdWIiOiIyMTAiLCJwcnYiOiJhMzE0NzRkMjM3ODYzZTU1ODI2MWI4NWVhNzNhNzEyNDE1MTlhZTkzIn0.DUMRSkY3yREjof4IWHeaeN_uifIEPpagvbbQQ14k-vk",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "api_secret_key",
+													"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{live}}/api/v1/driver/profile/media/checkImg",
+											"host": [
+												"{{live}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"driver",
+												"profile",
+												"media",
+												"checkImg"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Scooter",
+							"item": [
+								{
+									"name": "Personal Img",
+									"item": [
+										{
+											"name": "uploadScooterPersonalImg",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3Rlc3RzaWx2ZXIudHJpcHUubmV0L2FwaS92MS9kcml2ZXIvcmVnaXN0ZXIiLCJpYXQiOjE3MDY1MTU4NDgsImV4cCI6MTcwNjUxOTQ0OCwibmJmIjoxNzA2NTE1ODQ4LCJqdGkiOiJ3TWxaVkdKTEtSRXhqaEtlIiwic3ViIjoiMzQ5IiwicHJ2IjoiYTMxNDc0ZDIzNzg2M2U1NTgyNjFiODVlYTczYTcxMjQxNTE5YWU5MyJ9.mpDVD87itaj3H3P1XoWa3GmJBUjPSLspkDthJimYDYs",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "api_secret_key",
+															"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+															"type": "text"
+														},
+														{
+															"key": "type",
+															"value": "personal",
+															"type": "text"
+														},
+														{
+															"key": "personal_avatar",
+															"type": "file",
+															"src": "/C:/Users/User/Desktop/personal/1.jpg"
+														},
+														{
+															"key": "id_photo_front",
+															"type": "file",
+															"src": "/C:/Users/User/Desktop/personal/2.jpg"
+														},
+														{
+															"key": "id_photo_back",
+															"type": "file",
+															"src": "/C:/Users/User/Desktop/personal/3.jpg"
+														},
+														{
+															"key": "criminal_record",
+															"type": "file",
+															"src": "/C:/Users/User/Desktop/personal/4.jpg"
+														},
+														{
+															"key": "captain_license_front",
+															"type": "file",
+															"src": "/C:/Users/User/Desktop/personal/5.jpg"
+														},
+														{
+															"key": "captain_license_back",
+															"type": "file",
+															"src": "/C:/Users/User/Desktop/personal/6.jpg"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{live_test_2}}/api/v1/driver/profile/scooter/uploadScooterPersonalImg",
+													"host": [
+														"{{live_test_2}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"driver",
+														"profile",
+														"scooter",
+														"uploadScooterPersonalImg"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Check Img",
+									"item": [
+										{
+											"name": "allScooterMedia",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3Rlc3RzaWx2ZXIudHJpcHUubmV0L2FwaS92MS9kcml2ZXIvbG9naW4iLCJpYXQiOjE3MDY1Mjg1NzYsImV4cCI6MTcwNjUzMjE3NiwibmJmIjoxNzA2NTI4NTc2LCJqdGkiOiJsSnV5bVdoQ0JsT2pQUTNpIiwic3ViIjoiMzUyIiwicHJ2IjoiYTMxNDc0ZDIzNzg2M2U1NTgyNjFiODVlYTczYTcxMjQxNTE5YWU5MyJ9.uoBMLNt6SWVpWFROLNw7robiFQHiZjE3dFzpy9Z6mT4",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "type",
+															"value": "scooter",
+															"description": "personal , scooter",
+															"type": "text"
+														},
+														{
+															"key": "api_secret_key",
+															"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "{{live_test_2}}/api/v1/driver/profile/scooter/allScooterMedia",
+													"host": [
+														"{{live_test_2}}"
+													],
+													"path": [
+														"api",
+														"v1",
+														"driver",
+														"profile",
+														"scooter",
+														"allScooterMedia"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "getScooterRejectMedia",
+											"request": {
+												"auth": {
+													"type": "bearer",
+													"bearer": [
+														{
+															"key": "token",
+															"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3Rlc3RzaWx2ZXIudHJpcHUubmV0L2FwaS92MS9kcml2ZXIvbG9naW4iLCJpYXQiOjE3MDY1Mjg1NzYsImV4cCI6MTcwNjUzMjE3NiwibmJmIjoxNzA2NTI4NTc2LCJqdGkiOiJsSnV5bVdoQ0JsT2pQUTNpIiwic3ViIjoiMzUyIiwicHJ2IjoiYTMxNDc0ZDIzNzg2M2U1NTgyNjFiODVlYTczYTcxMjQxNTE5YWU5MyJ9.uoBMLNt6SWVpWFROLNw7robiFQHiZjE3dFzpy9Z6mT4",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "formdata",
+													"formdata": [
+														{
+															"key": "api_secret_key",
+															"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "https://testsilver.tripu.net/api/v1/driver/profile/scooter/getScooterRejectMedia",
+													"protocol": "https",
+													"host": [
+														"testsilver",
+														"tripu",
+														"net"
+													],
+													"path": [
+														"api",
+														"v1",
+														"driver",
+														"profile",
+														"scooter",
+														"getScooterRejectMedia"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "create_new_scooter",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3Rlc3RzaWx2ZXIudHJpcHUubmV0L2FwaS92MS9kcml2ZXIvcmVnaXN0ZXIiLCJpYXQiOjE3MDY1MTU4NDgsImV4cCI6MTcwNjUxOTQ0OCwibmJmIjoxNzA2NTE1ODQ4LCJqdGkiOiJ3TWxaVkdKTEtSRXhqaEtlIiwic3ViIjoiMzQ5IiwicHJ2IjoiYTMxNDc0ZDIzNzg2M2U1NTgyNjFiODVlYTczYTcxMjQxNTE5YWU5MyJ9.mpDVD87itaj3H3P1XoWa3GmJBUjPSLspkDthJimYDYs",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "scooter_make_id",
+													"value": "1",
+													"type": "text"
+												},
+												{
+													"key": "scooter_model_id",
+													"value": "2",
+													"type": "text"
+												},
+												{
+													"key": "scooter_number",
+													"value": "aaaaaaa002",
+													"type": "text"
+												},
+												{
+													"key": "scooter_color",
+													"value": "ssss4",
+													"type": "text"
+												},
+												{
+													"key": "scooter_year",
+													"value": "2024",
+													"type": "text"
+												},
+												{
+													"key": "api_secret_key",
+													"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+													"type": "text"
+												},
+												{
+													"key": "scooter_license_front",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/car/1.jpg"
+												},
+												{
+													"key": "scooter_license_back",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/car/2.jpg"
+												},
+												{
+													"key": "scooter_front",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/car/3.jpg"
+												},
+												{
+													"key": "scooter_back",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/car/4.jpg"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{live_test_2}}/api/v1/driver/profile/scooter/createNewScooter",
+											"host": [
+												"{{live_test_2}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"driver",
+												"profile",
+												"scooter",
+												"createNewScooter"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												},
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												},
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												},
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												},
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "checkScooterImg",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3Rlc3RzaWx2ZXIudHJpcHUubmV0L2FwaS92MS9kcml2ZXIvbG9naW4iLCJpYXQiOjE3MDY1Mjg1NzYsImV4cCI6MTcwNjUzMjE3NiwibmJmIjoxNzA2NTI4NTc2LCJqdGkiOiJsSnV5bVdoQ0JsT2pQUTNpIiwic3ViIjoiMzUyIiwicHJ2IjoiYTMxNDc0ZDIzNzg2M2U1NTgyNjFiODVlYTczYTcxMjQxNTE5YWU5MyJ9.uoBMLNt6SWVpWFROLNw7robiFQHiZjE3dFzpy9Z6mT4",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "api_secret_key",
+													"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{live_test_2}}/api/v1/driver/profile/scooter/checkScooterImg",
+											"host": [
+												"{{live_test_2}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"driver",
+												"profile",
+												"scooter",
+												"checkScooterImg"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "updateScooterRejectedImage",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3Rlc3RzaWx2ZXIudHJpcHUubmV0L2FwaS92MS9kcml2ZXIvbG9naW4iLCJpYXQiOjE3MDY1MzMwNDYsImV4cCI6MTcwNjUzNjY0NiwibmJmIjoxNzA2NTMzMDQ2LCJqdGkiOiJwQ3BkTjhES0ZlQ2haWEFTIiwic3ViIjoiMzUyIiwicHJ2IjoiYTMxNDc0ZDIzNzg2M2U1NTgyNjFiODVlYTczYTcxMjQxNTE5YWU5MyJ9.uKbeVbTsh6jj_RMkrCP3erHBAn2ezuhDoW3wXxbBR2w",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "api_secret_key",
+													"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+													"type": "text"
+												},
+												{
+													"key": "scooter_license_front",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/New folder/offers.png"
+												}
+											]
+										},
+										"url": {
+											"raw": "https://testsilver.tripu.net/api/v1/driver/profile/scooter/updateScooterRejectedImage",
+											"protocol": "https",
+											"host": [
+												"testsilver",
+												"tripu",
+												"net"
+											],
+											"path": [
+												"api",
+												"v1",
+												"driver",
+												"profile",
+												"scooter",
+												"updateScooterRejectedImage"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Tricycle",
+							"item": [
+								{
+									"name": "create_new_tricycle",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2RyaXZlci9sb2dpbl9waG9uZSIsImlhdCI6MTcwNjY4OTgwOSwiZXhwIjoxNzA2NjkzNDA5LCJuYmYiOjE3MDY2ODk4MDksImp0aSI6Ik5ycndkSERmM1dKTm5PQUUiLCJzdWIiOiIxMSIsInBydiI6ImEzMTQ3NGQyMzc4NjNlNTU4MjYxYjg1ZWE3M2E3MTI0MTUxOWFlOTMifQ.DL1eTe6unJ9afdPAMqYh6r3lQSTJTJGCcgIVmpb3vek",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "tricycle_make_id",
+													"value": "2",
+													"type": "text"
+												},
+												{
+													"key": "tricycle_model_id",
+													"value": "2",
+													"type": "text"
+												},
+												{
+													"key": "tricycle_number",
+													"value": "aaaaaaa003",
+													"type": "text"
+												},
+												{
+													"key": "tricycle_color",
+													"value": "ssss4",
+													"type": "text"
+												},
+												{
+													"key": "tricycle_year",
+													"value": "2024",
+													"type": "text"
+												},
+												{
+													"key": "api_secret_key",
+													"value": "Raphaelle McLaughlin",
+													"type": "text"
+												},
+												{
+													"key": "tricycle_front",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/New folder/contactus.png"
+												},
+												{
+													"key": "tricycle_back",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/New folder/offers.png"
+												},
+												{
+													"key": "tricycle_right",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/New folder/xzwN9XjflEsLq1nd7pxuB120Q9ptLlCOy6vOSQYv.jpg"
+												},
+												{
+													"key": "tricycle_left",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/1.jpg"
+												},
+												{
+													"key": "tricycle_license_front",
+													"type": "file",
+													"src": []
+												},
+												{
+													"key": "tricycle_license_back",
+													"type": "file",
+													"src": []
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/driver/profile/tricycles/createNewTricycle",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"driver",
+												"profile",
+												"tricycles",
+												"createNewTricycle"
+											],
+											"query": [
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												},
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												},
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												},
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												},
+												{
+													"key": "",
+													"value": null,
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "uploadTricylePersonalImg",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2RyaXZlci9sb2dpbl9waG9uZSIsImlhdCI6MTcwNjY4OTgwOSwiZXhwIjoxNzA2NjkzNDA5LCJuYmYiOjE3MDY2ODk4MDksImp0aSI6Ik5ycndkSERmM1dKTm5PQUUiLCJzdWIiOiIxMSIsInBydiI6ImEzMTQ3NGQyMzc4NjNlNTU4MjYxYjg1ZWE3M2E3MTI0MTUxOWFlOTMifQ.DL1eTe6unJ9afdPAMqYh6r3lQSTJTJGCcgIVmpb3vek",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "api_secret_key",
+													"value": "Raphaelle McLaughlin",
+													"type": "text"
+												},
+												{
+													"key": "type",
+													"value": "personal",
+													"type": "text"
+												},
+												{
+													"key": "personal_avatar",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/4.jpg"
+												},
+												{
+													"key": "id_photo_front",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/3.jpg"
+												},
+												{
+													"key": "id_photo_back",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/2.jpg"
+												},
+												{
+													"key": "criminal_record",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/1.jpg"
+												},
+												{
+													"key": "captain_license_front",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/New folder/offers.png"
+												},
+												{
+													"key": "captain_license_back",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/New folder/contactus.png"
+												},
+												{
+													"key": "",
+													"type": "file",
+													"src": [],
+													"disabled": true
+												},
+												{
+													"key": "",
+													"type": "file",
+													"src": [],
+													"disabled": true
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/driver/profile/tricycles/uploadTricylePersonalImg",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"driver",
+												"profile",
+												"tricycles",
+												"uploadTricylePersonalImg"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "allTricyleMedia",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2RyaXZlci9sb2dpbl9waG9uZSIsImlhdCI6MTcwNjY5NTA3MywiZXhwIjoxNzA2Njk4NjczLCJuYmYiOjE3MDY2OTUwNzMsImp0aSI6IjJBVTEzYkRIMEFYakM3RUYiLCJzdWIiOiIxMSIsInBydiI6ImEzMTQ3NGQyMzc4NjNlNTU4MjYxYjg1ZWE3M2E3MTI0MTUxOWFlOTMifQ.sKlYVSN6P6AvnD6GDdNBw4dtzUmqpDmWKX2NP4Ka4fc",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "type",
+													"value": "tricycle",
+													"description": "personal , scooter",
+													"type": "text"
+												},
+												{
+													"key": "api_secret_key",
+													"value": "Raphaelle McLaughlin",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/driver/profile/tricycles/allTricyleMedia",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"driver",
+												"profile",
+												"tricycles",
+												"allTricyleMedia"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "checkTricyleImg",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2RyaXZlci9sb2dpbl9waG9uZSIsImlhdCI6MTcwNjY5MjYyMiwiZXhwIjoxNzA2Njk2MjIyLCJuYmYiOjE3MDY2OTI2MjIsImp0aSI6Ikg5UXN5TzNIanR2RURHWmYiLCJzdWIiOiIxMSIsInBydiI6ImEzMTQ3NGQyMzc4NjNlNTU4MjYxYjg1ZWE3M2E3MTI0MTUxOWFlOTMifQ.GSGsVwnVdQ9clJW6d2oJsklhbD-xXhMdkA2k7CgBJFg",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "api_secret_key",
+													"value": "Raphaelle McLaughlin",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/driver/profile/tricycles/checkTricyleImg",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"driver",
+												"profile",
+												"tricycles",
+												"checkTricyleImg"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "getTricyleRejectMedia",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2RyaXZlci9sb2dpbl9waG9uZSIsImlhdCI6MTcwNjY5NTA3MywiZXhwIjoxNzA2Njk4NjczLCJuYmYiOjE3MDY2OTUwNzMsImp0aSI6IjJBVTEzYkRIMEFYakM3RUYiLCJzdWIiOiIxMSIsInBydiI6ImEzMTQ3NGQyMzc4NjNlNTU4MjYxYjg1ZWE3M2E3MTI0MTUxOWFlOTMifQ.sKlYVSN6P6AvnD6GDdNBw4dtzUmqpDmWKX2NP4Ka4fc",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "api_secret_key",
+													"value": "Raphaelle McLaughlin",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/driver/profile/tricycles/getTricyleRejectMedia",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"driver",
+												"profile",
+												"tricycles",
+												"getTricyleRejectMedia"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "updateTricyleRejectedImage",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2RyaXZlci9sb2dpbl9waG9uZSIsImlhdCI6MTcwNjY5NTA3MywiZXhwIjoxNzA2Njk4NjczLCJuYmYiOjE3MDY2OTUwNzMsImp0aSI6IjJBVTEzYkRIMEFYakM3RUYiLCJzdWIiOiIxMSIsInBydiI6ImEzMTQ3NGQyMzc4NjNlNTU4MjYxYjg1ZWE3M2E3MTI0MTUxOWFlOTMifQ.sKlYVSN6P6AvnD6GDdNBw4dtzUmqpDmWKX2NP4Ka4fc",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "api_secret_key",
+													"value": "Raphaelle McLaughlin",
+													"type": "text"
+												},
+												{
+													"key": "tricycle_front",
+													"type": "file",
+													"src": "/C:/Users/User/Desktop/personal/5.jpg"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/driver/profile/tricycles/updateTricyleRejectedImage",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"driver",
+												"profile",
+												"tricycles",
+												"updateTricyleRejectedImage"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Trunk",
+							"item": []
+						},
+						{
+							"name": "uploadProfilePhoto",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NpbHZlci50YWctc29mdC5jb20vYXBpL3YxL2RyaXZlci9sb2dpbl9waG9uZSIsImlhdCI6MTY5NDI0NjMyMywiZXhwIjoxNjk0MjQ5OTIzLCJuYmYiOjE2OTQyNDYzMjMsImp0aSI6IlQydlBFcU9qb0JXTnk4N1QiLCJzdWIiOiIxIiwicHJ2IjoiYTMxNDc0ZDIzNzg2M2U1NTgyNjFiODVlYTczYTcxMjQxNTE5YWU5MyJ9.MJbd_5c_zS7M2BCosbLqgdKBB97X9kDgnCFQZ4lncEg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "photo_id_before",
+											"description": "// صورة الهوية الشخصية امام",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "photo_id_behind",
+											"description": "// صورة الهوية الشخصية خلف",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "photo_driving_before",
+											"description": "// صورة رخصة القيادة امام",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "photo_driving_behind",
+											"description": "// صورة رخصة القيادة خلف",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "photo_criminal",
+											"description": "// صورة الفيش الجنائى",
+											"type": "file",
+											"src": []
+										},
+										{
+											"key": "photo_personal",
+											"description": "// الصورة الشخصية",
+											"type": "file",
+											"src": []
+										}
+									]
+								},
+								"url": {
+									"raw": "{{live}}/api/v1/driver/profile/uploadProfilePhoto",
+									"host": [
+										"{{live}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"profile",
+										"uploadProfilePhoto"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getCaptainPhotosWithStatus",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3YxL2RyaXZlci9sb2dpbl9waG9uZSIsImlhdCI6MTY5NDI0NjE1MywiZXhwIjoxNjk0MjQ5NzUzLCJuYmYiOjE2OTQyNDYxNTMsImp0aSI6InFNa2c2c3hJSENZaElyMkwiLCJzdWIiOiIxIiwicHJ2IjoiYTMxNDc0ZDIzNzg2M2U1NTgyNjFiODVlYTczYTcxMjQxNTE5YWU5MyJ9.f-3FHQZrBMZrxED-O1Klwf7gCGm3aQRd3qo-dQXo-Is",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/driver/profile/getCaptainPhotosWithStatus",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"profile",
+										"getCaptainPhotosWithStatus"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CheckUpload",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NpbHZlci50cmlwdS5uZXQvYXBpL3YxL2RyaXZlci9sb2dpbl9waG9uZSIsImlhdCI6MTcwNTg0NzUzNiwiZXhwIjoxNzA1ODUxMTM2LCJuYmYiOjE3MDU4NDc1MzYsImp0aSI6InpmbjQ5ekVYRDIyT3kwUzQiLCJzdWIiOiIyMTAiLCJwcnYiOiJhMzE0NzRkMjM3ODYzZTU1ODI2MWI4NWVhNzNhNzEyNDE1MTlhZTkzIn0.DUMRSkY3yREjof4IWHeaeN_uifIEPpagvbbQQ14k-vk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "api_secret_key",
+											"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{live}}/api/v1/driver/profile/checkUploadfilesOrNot?=",
+									"host": [
+										"{{live}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"driver",
+										"profile",
+										"checkUploadfilesOrNot"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "setting",
+			"item": [
+				{
+					"name": "country",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/countries",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"countries"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/country/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"country",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "CarMake",
+					"item": [
+						{
+							"name": "index",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/carMake?api_secret_key=9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"carMake"
+									],
+									"query": [
+										{
+											"key": "api_secret_key",
+											"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/carMake/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"carMake",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "tripType",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/tripType",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tripType"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/tripType/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"tripType",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "carType",
+					"item": [
+						{
+							"name": "index",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "api_secret_key",
+											"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{live_test}}/api/v1/carType?api_secret_key=9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+									"host": [
+										"{{live_test}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"carType"
+									],
+									"query": [
+										{
+											"key": "api_secret_key",
+											"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/carType/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"carType",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "categoryCar",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/categoryCar",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"categoryCar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/categoryCar/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"categoryCar",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "carModel",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/carModel?api_secret_key=9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"carModel"
+									],
+									"query": [
+										{
+											"key": "api_secret_key",
+											"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/carModel/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"carModel",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Package",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/package",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"package"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/package/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"package",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "offer",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/offer",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"offer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/offer/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"offer",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "subscription",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/subscription",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"subscription"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/subscription/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"subscription",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Sos",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{live}}/api/v1/sos",
+									"host": [
+										"{{live}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"sos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/v1/sos/1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"sos",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "discounts",
+					"item": [
+						{
+							"name": "checkCode",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "code",
+											"value": "a7medFixed",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}/api/v1/checkCodeDiscount",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"checkCodeDiscount"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "scooter",
+					"item": [
+						{
+							"name": "Scooter Make",
+							"item": [
+								{
+									"name": "index",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "\r\n{\r\n    \"api_secret_key\": \"jUAagpsIyoao79imzgMPUTD1hMExtM6I\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://testsilver.tripu.net/api/v1/scooterMake",
+											"protocol": "https",
+											"host": [
+												"testsilver",
+												"tripu",
+												"net"
+											],
+											"path": [
+												"api",
+												"v1",
+												"scooterMake"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "show",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "",
+												"value": "",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"api_secret_key\" : \"Raphaelle McLaughlin\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/scooterMake/1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"scooterMake",
+												"1"
+											],
+											"query": [
+												{
+													"key": "api_secret_key",
+													"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Scooter Model",
+							"item": [
+								{
+									"name": "index",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"api_secret_key\" : \"9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://testsilver.tripu.net/api/v1/scooterModel",
+											"protocol": "https",
+											"host": [
+												"testsilver",
+												"tripu",
+												"net"
+											],
+											"path": [
+												"api",
+												"v1",
+												"scooterModel"
+											],
+											"query": [
+												{
+													"key": "api_secret_key",
+													"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "show",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/v1/scooterModel/1?api_secret_key=9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"scooterModel",
+												"1"
+											],
+											"query": [
+												{
+													"key": "api_secret_key",
+													"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "tricycle",
+					"item": [
+						{
+							"name": "Tricycle Make",
+							"item": [
+								{
+									"name": "index",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "\r\n{\r\n    \"api_secret_key\": \"Raphaelle McLaughlin\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/tricycleMake",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"tricycleMake"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "show",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "",
+												"value": "",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"api_secret_key\" : \"Raphaelle McLaughlin\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/v1/tricycleMake/2",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"tricycleMake",
+												"2"
+											],
+											"query": [
+												{
+													"key": "api_secret_key",
+													"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "CMS",
+					"item": [
+						{
+							"name": "Services",
+							"item": [
+								{
+									"name": "index",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"api_secret_key\" : \"9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{live_test_2}}/api/v1/cms/service",
+											"host": [
+												"{{live_test_2}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"cms",
+												"service"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Offers",
+							"item": [
+								{
+									"name": "index",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"api_secret_key\" : \"9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{live_test_2}}/api/v1/cms/offer",
+											"host": [
+												"{{live_test_2}}"
+											],
+											"path": [
+												"api",
+												"v1",
+												"cms",
+												"offer"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "trunk",
+					"item": [
+						{
+							"name": "Trunk Make",
+							"item": [
+								{
+									"name": "trunkMake",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "\r\n{\r\n    \"api_secret_key\": \"jUAagpsIyoao79imzgMPUTD1hMExtM6I\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://testsilver.tripu.net/api/v1/trunkMake",
+											"protocol": "https",
+											"host": [
+												"testsilver",
+												"tripu",
+												"net"
+											],
+											"path": [
+												"api",
+												"v1",
+												"trunkMake"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "show",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "",
+												"value": "",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"api_secret_key\" : \"jUAagpsIyoao79imzgMPUTD1hMExtM6I\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://testsilver.tripu.net/api/v1/trunkMake/1",
+											"protocol": "https",
+											"host": [
+												"testsilver",
+												"tripu",
+												"net"
+											],
+											"path": [
+												"api",
+												"v1",
+												"trunkMake",
+												"1"
+											],
+											"query": [
+												{
+													"key": "api_secret_key",
+													"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Trunk Model",
+							"item": [
+								{
+									"name": "trunkModel",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://testsilver.tripu.net/api/v1/trunkModel",
+											"protocol": "https",
+											"host": [
+												"testsilver",
+												"tripu",
+												"net"
+											],
+											"path": [
+												"api",
+												"v1",
+												"trunkModel"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "MainSettings",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "api_secret_key",
+									"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/mainSetting?api_secret_key=9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"mainSetting"
+							],
+							"query": [
+								{
+									"key": "api_secret_key",
+									"value": "9BKZASpQqbi5LieDS2NqAgi6CKL9IWIM"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		},
+		{
+			"key": "live",
+			"value": "https://silver.tripu.net",
+			"type": "string"
+		},
+		{
+			"key": "live2",
+			"value": "silver.tripu.net",
+			"type": "string"
+		},
+		{
+			"key": "live_test",
+			"value": "https://silver.tag-soft.com",
+			"type": "string"
+		},
+		{
+			"key": "live_test_2",
+			"value": "https://silver.tripu.net",
+			"type": "string"
+		}
+	]
+}
